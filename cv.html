@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alvin Baguma — CV</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .cv-page { margin: 0 auto; max-width: 900px; padding: 8vw 7vw; }
+      .cv-page header { border-bottom: 1px solid var(--line); margin-bottom: 3rem; padding-bottom: 2rem; }
+      .cv-page h1 { font-size: clamp(3rem, 8vw, 6rem); margin: 2rem 0 1rem; }
+      .cv-page h2 { font-size: 1.4rem; letter-spacing: -.03em; margin: 3rem 0 1rem; }
+      .cv-page p, .cv-page li { color: var(--muted); font-size: .9rem; line-height: 1.75; }
+      .cv-page ul { padding-left: 1.2rem; }
+      .cv-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+      .cv-meta a { color: var(--accent); }
+      .print-link { float: right; }
+      @media print { .print-link { display: none; } .cv-page { padding: 0; } }
+    </style>
+  </head>
+  <body>
+    <main class="cv-page">
+      <header>
+        <a class="text-link" href="index.html">← Back to site</a>
+        <a class="text-link print-link" href="#" onclick="window.print(); return false;">Print / save PDF</a>
+        <h1>Alvin<br><em>Baguma.</em></h1>
+        <p>IT undergraduate · builder · technology-minded entrepreneur</p>
+        <div class="cv-meta">
+          <span>Kampala, Uganda</span>
+          <a href="https://github.com/AlvinBaguma">github.com/AlvinBaguma</a>
+          <a href="https://www.linkedin.com/in/alvin-baguma/">linkedin.com/in/alvin-baguma</a>
+        </div>
+      </header>
+      <section>
+        <h2>Profile</h2>
+        <p>Information Technology undergraduate at Kampala International University with practical experience in business operations, sales and community internet services. Interested in networking, Linux, web application development, automation and emerging technology.</p>
+      </section>
+      <section>
+        <h2>Experience</h2>
+        <h3>Unlimited Internet Hub</h3>
+        <p>Founder / operator · Community internet business</p>
+        <ul><li>Run and develop a community-focused internet venture.</li><li>Explore the relationship between reliable connectivity, customer needs and sustainable operations.</li></ul>
+        <h3>Shoe Puzzle Enterprises</h3>
+        <p>Business operations and sales</p>
+        <ul><li>Build practical experience through sales and day-to-day business operations.</li></ul>
+      </section>
+      <section>
+        <h2>Technical interests</h2>
+        <p>Computer networking · Linux · Web application development · Automation · AI-assisted development · Business technology</p>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <p><strong>Kampala International University</strong><br>Information Technology undergraduate</p>
+      </section>
+    </main>
+  </body>
+</html>
