@@ -1,52 +1,74 @@
 (() => {
-  "use strict";\n  document.documentElement.classList.add("js");
+  "use strict";
 
+  // Progressive enhancement: without JavaScript, every section remains visible.
+  document.documentElement.classList.add("js");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // Type only the hero identity; the complete text remains available without JS.
+  // A short, deliberate terminal-style identity reveal.
   const typed = document.getElementById("whoami-cmd");
   if (typed && !reduceMotion) {
-    const text = typed.dataset.text || typed.textContent;
+    const completeText = typed.dataset.text || typed.textContent.trim();
     typed.textContent = "";
     let index = 0;
     const typeNext = () => {
-      if (index >= text.length) return;
-      typed.textContent += text.charAt(index++);
-      window.setTimeout(typeNext, 85);
+      if (index >= completeText.length) return;
+      typed.textContent += completeText.charAt(index++);
+      window.setTimeout(typeNext, 78);
     };
-    window.setTimeout(typeNext, 260);
+    window.setTimeout(typeNext, 320);
   }
 
-  // Reveal sections progressively, while keeping all content visible without JS.
+  // Prepare small staggered entrances for repeated content.
+  document.querySelectorAll(".terminal-section").forEach((section) => {
+    [
+      ".category-list .category-row",
+      ".project-grid .project-card",
+      ".results-table tbody tr"
+    ].forEach((selector) => {
+      section.querySelectorAll(selector).forEach((item, index) => {
+        item.style.setProperty("--reveal-delay", Math.min(index * 65, 390) + "ms");
+      });
+    });
+    section.querySelectorAll(".fastfetch-info dl > div").forEach((item, index) => {
+      item.style.transitionDelay = Math.min(index * 38, 420) + "ms";
+    });
+  });
+
+  // Reveal each section once, only as it approaches the viewport.
   const sections = document.querySelectorAll(".terminal-section");
   if ("IntersectionObserver" in window && !reduceMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.08, rootMargin: "0px 0px -35px 0px" });
+    }, { threshold: 0.08, rootMargin: "0px 0px -42px 0px" });
     sections.forEach((section) => revealObserver.observe(section));
   } else {
     sections.forEach((section) => section.classList.add("is-visible"));
   }
 
-  // East Africa Time, independent of the device's configured timezone.
+  // East Africa Time, independent of the device timezone.
   const clock = document.getElementById("eat-clock");
   const updateClock = () => {
     if (!clock) return;
     clock.textContent = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Africa/Kampala", hour: "2-digit", minute: "2-digit", hour12: false
+      timeZone: "Africa/Kampala",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
     }).format(new Date()) + " EAT";
   };
   updateClock();
   window.setInterval(updateClock, 60000);
 
-  // Active section tracking for the compact header navigation.
+  // Scroll-aware navigation.
   const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
   const navTargets = navLinks
     .map((link) => document.querySelector(link.getAttribute("href")))
@@ -66,33 +88,33 @@
     navTargets.forEach((target) => navObserver.observe(target));
   }
 
-  // Small scroll progress indicator.
+  // Smooth, frame-synchronised reading progress.
   const progress = document.getElementById("scroll-progress");
-  let ticking = false;
+  let progressQueued = false;
   const updateProgress = () => {
     if (progress) {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const amount = scrollable > 0 ? window.scrollY / scrollable : 0;
-      progress.style.transform = "scaleX(" + Math.min(1, Math.max(0, amount)) + ")";
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      progress.style.transform = "scaleX(" + Math.min(1, Math.max(0, ratio)) + ")";
     }
-    ticking = false;
+    progressQueued = false;
   };
   window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateProgress);
-      ticking = true;
-    }
+    if (progressQueued) return;
+    progressQueued = true;
+    window.requestAnimationFrame(updateProgress);
   }, { passive: true });
+  window.addEventListener("resize", updateProgress);
   updateProgress();
 
-  // Project filters are buttons with real pressed state for keyboard and screen readers.
+  // Accessible project filters.
   const filterButtons = document.querySelectorAll("[data-filter]");
   const projectCards = document.querySelectorAll(".project-card[data-kind]");
   const emptyMessage = document.getElementById("filter-empty");
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-      let visible = 0;
+      const filter = button.dataset.filter || "all";
+      let visibleCount = 0;
       filterButtons.forEach((item) => {
         const active = item === button;
         item.classList.toggle("is-active", active);
@@ -101,13 +123,37 @@
       projectCards.forEach((card) => {
         const show = filter === "all" || card.dataset.kind === filter;
         card.hidden = !show;
-        if (show) visible += 1;
+        if (show) visibleCount += 1;
       });
-      if (emptyMessage) emptyMessage.hidden = visible > 0;
+      if (emptyMessage) emptyMessage.hidden = visibleCount > 0;
     });
   });
 
-  // Respect reduced-motion preferences for the back-to-top control.
+  // Pointer-following light and restrained 3D tilt on desktop project cards.
+  if (finePointer && !reduceMotion) {
+    projectCards.forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const bounds = card.getBoundingClientRect();
+        const x = event.clientX - bounds.left;
+        const y = event.clientY - bounds.top;
+        const px = x / bounds.width;
+        const py = y / bounds.height;
+        card.style.setProperty("--pointer-x", (px * 100).toFixed(1) + "%");
+        card.style.setProperty("--pointer-y", (py * 100).toFixed(1) + "%");
+        const rotateY = (px - 0.5) * 2.2;
+        const rotateX = (0.5 - py) * 2.2;
+        card.style.transform = "perspective(900px) translateY(-3px) rotateX(" +
+          rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+        card.style.removeProperty("--pointer-x");
+        card.style.removeProperty("--pointer-y");
+      });
+    });
+  }
+
+  // Respect reduced-motion preferences for return-to-top navigation.
   document.querySelectorAll(".back-to-top, a[href='#top']").forEach((link) => {
     link.addEventListener("click", (event) => {
       if (link.getAttribute("href") !== "#top") return;
