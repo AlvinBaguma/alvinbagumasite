@@ -1,150 +1,174 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The digital headquarters of Alvin Baguma — an IT undergraduate, builder and technology-minded entrepreneur in Kampala.">
-    <title>Alvin Baguma — Systems with a human side</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Alvin Baguma home">
-        <span class="wordmark-mark">AB</span>
-        <span>Alvin Baguma</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="header-link" href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e0f">
+  <meta name="description" content="Alvin Baguma — IT undergraduate, systems-minded builder and technology entrepreneur based in Kampala, Uganda.">
+  <title>Alvin Baguma — terminal / home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Alvin Baguma home"><span class="prompt">~/</span><span>alvin</span><span class="wordmark-cursor" aria-hidden="true">_</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#about">about</a><a href="#work">work</a><a href="#skills">skills</a><a href="#contact">contact</a>
+    </nav>
+    <span class="header-meta"><span class="status-dot"></span> available for opportunities</span>
+  </header>
 
-    <main id="top">
-      <section class="hero section-grid" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> Based in Kampala, Uganda</p>
-          <h1 id="hero-title">I make technology<br><em>useful in the real world.</em></h1>
-          <p class="hero-intro">An IT undergraduate, operator and curious builder exploring the space between reliable systems, digital products and everyday business.</p>
-          <div class="hero-actions">
-            <a class="button button-dark" href="#work">Explore the work <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="https://github.com/AlvinBaguma" target="_blank" rel="noreferrer">Open GitHub <span aria-hidden="true">↗</span></a>
-          </div>
+  <main id="main">
+    <section class="hero terminal-section" id="top" aria-labelledby="hero-title">
+      <p class="section-cmd"><span class="prompt">$</span> whoami</p>
+      <div class="hero-body">
+        <p class="eyebrow"><span class="status-dot"></span> based in kampala, uganda</p>
+        <h1 id="hero-title"><span id="whoami-cmd" data-text="alvin baguma">alvin baguma</span><span class="cursor" aria-hidden="true">▋</span></h1>
+        <p class="hero-role">IT undergraduate <span class="separator">/</span> systems-minded builder <span class="separator">/</span> technology entrepreneur</p>
+        <p class="hero-copy">I work at the intersection of people, practical technology and the systems that make things run. Curious by default; happiest when I’m learning, troubleshooting or building something useful.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">view work <span aria-hidden="true">↓</span></a>
+          <a class="btn btn-quiet" href="https://github.com/AlvinBaguma" target="_blank" rel="noopener noreferrer">github <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-aside" aria-label="Introduction">
-          <div class="orbit-card">
-            <div class="orbit-ring orbit-ring-one"></div>
-            <div class="orbit-ring orbit-ring-two"></div>
-            <div class="orbit-core">01</div>
-            <span class="orbit-label orbit-label-top">curiosity</span>
-            <span class="orbit-label orbit-label-right">systems</span>
-            <span class="orbit-label orbit-label-bottom">people</span>
-          </div>
-          <p class="aside-note">A living notebook of experiments, ventures and lessons from building with limited resources.</p>
+      </div>
+      <div class="hero-terminal" aria-label="Current interests">
+        <div class="terminal-top"><span></span><span></span><span></span><small>alvin@kampala: ~</small></div>
+        <div class="terminal-lines">
+          <p><span class="prompt">$</span> echo currently exploring</p>
+          <p class="terminal-output">linux · networking · web · automation · AI-assisted development</p>
+          <p><span class="prompt">$</span> <span class="terminal-dim">_</span></p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="signal-bar" aria-label="Areas of interest">
-        <span>Currently exploring</span>
-        <div class="signal-items">
-          <span>Linux</span><i>✳</i><span>Networking</span><i>✳</i><span>Web applications</span><i>✳</i><span>Automation</span><i>✳</i><span>AI-assisted development</span>
+    <section class="terminal-section" id="about" aria-labelledby="about-title">
+      <p class="section-cmd"><span class="prompt">$</span> cat about.md</p>
+      <div class="section-content">
+        <h2 id="about-title">technology should <span class="accent">earn its place.</span></h2>
+        <div class="prose">
+          <p>I’m drawn to the practical layer beneath a good digital experience: the network that stays up, the workflow that saves time and the interface that makes a complicated thing feel straightforward. I like understanding how systems fit together, then making them work for the people who depend on them.</p>
+          <p>I’m studying for a Bachelor of Information Technology at Kampala International University, while learning through hands-on work in business operations and community connectivity. Running a small internet venture has made technology tangible: uptime, coverage, customer experience and sustainability all matter at once.</p>
         </div>
-      </section>
+        <a class="inline-link" href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noopener noreferrer">read more on linkedin <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
 
-      <section class="intro section-grid" id="about" aria-labelledby="about-title">
-        <div class="section-index">02 <span>/</span> about</div>
-        <div class="intro-content">
-          <h2 id="about-title">The best technology<br><em>earns its place.</em></h2>
-          <div class="intro-columns">
-            <p>I’m interested in the unglamorous, important layer beneath a good digital experience: the network that stays up, the workflow that saves time and the interface that makes a complicated thing feel obvious.</p>
-            <p>My perspective comes from both sides of the screen. I study Information Technology at Kampala International University while gaining practical experience through business operations, sales and my own community internet venture.</p>
+    <section class="terminal-section" id="experience" aria-labelledby="experience-title">
+      <p class="section-cmd"><span class="prompt">$</span> cat experience.log</p>
+      <div class="section-content">
+        <h2 id="experience-title">where I’ve been <span class="accent">putting in work.</span></h2>
+        <dl class="category-list">
+          <div class="category-row">
+            <dt>current</dt><dd><strong>Unlimited Internet Hub</strong><span class="row-meta">Founder / operator · community connectivity</span><p>Building and operating a neighbourhood internet service: network administration, access-point deployment, customer support, service design and day-to-day operations.</p><div class="tag-list"><span class="tag">networking</span><span class="tag">operations</span><span class="tag">customer experience</span></div></dd>
           </div>
-          <a class="text-link" href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noreferrer">More about the journey <span aria-hidden="true">↗</span></a>
+          <div class="category-row">
+            <dt>operations</dt><dd><strong>Shoe Puzzle Enterprises</strong><span class="row-meta">Manager, Business Operations · 2023–present</span><p>Supporting the daily rhythm of a growing retail business through operations, sales coordination, customer service and practical problem-solving.</p><div class="tag-list"><span class="tag">business operations</span><span class="tag">sales</span><span class="tag">process improvement</span></div></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="terminal-section" id="work" aria-labelledby="work-title">
+      <p class="section-cmd"><span class="prompt">$</span> ls projects/</p>
+      <div class="section-content">
+        <div class="section-heading">
+          <h2 id="work-title">selected <span class="accent">work.</span></h2>
+          <p>Practical projects and ventures — built around real needs, not just screenshots.</p>
         </div>
-      </section>
-
-      <section class="work section-grid" id="work" aria-labelledby="work-title">
-        <div class="section-index">03 <span>/</span> selected work</div>
-        <div class="work-content">
-          <div class="section-heading">
-            <h2 id="work-title">Things I’m<br><em>putting in motion.</em></h2>
-            <p>Not a collection of screenshots. A few practical arenas where I’m learning by doing.</p>
-          </div>
-          <div class="project-list">
-            <article class="project project-featured">
-              <div class="project-number">01</div>
-              <div class="project-body">
-                <p class="project-type">Community venture · ongoing</p>
-                <h3>Unlimited Internet Hub</h3>
-                <p>Running and developing a community internet business — a hands-on study in access, operations, customer needs and the infrastructure that connects them.</p>
-                <div class="tag-list"><span>Operations</span><span>Connectivity</span><span>Entrepreneurship</span></div>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </article>
-            <article class="project">
-              <div class="project-number">02</div>
-              <div class="project-body">
-                <p class="project-type">Business operations · practical experience</p>
-                <h3>Shoe Puzzle Enterprises</h3>
-                <p>Learning the rhythm of a real business through sales and operations, and bringing a systems-thinking lens to the work.</p>
-                <div class="tag-list"><span>Sales</span><span>Business</span><span>Problem solving</span></div>
-              </div>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-            </article>
-            <article class="project">
-              <div class="project-number">03</div>
-              <div class="project-body">
-                <p class="project-type">Open source · experiments</p>
-                <h3>Small tools, useful questions</h3>
-                <p>Web applications, Linux workflows and automation experiments documented as I build. Follow the evolving lab on GitHub.</p>
-                <div class="tag-list"><span>Web</span><span>Linux</span><span>Automation</span></div>
-              </div>
-              <a class="project-arrow" href="https://github.com/AlvinBaguma" target="_blank" rel="noreferrer" aria-label="View Alvin's GitHub">↗</a>
-            </article>
-          </div>
+        <div class="filter-bar" role="group" aria-label="Filter projects">
+          <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">all</button>
+          <button class="filter-btn" type="button" data-filter="ventures" aria-pressed="false">ventures</button>
+          <button class="filter-btn" type="button" data-filter="code" aria-pressed="false">code</button>
         </div>
-      </section>
-
-      <section class="now section-grid" aria-labelledby="now-title">
-        <div class="section-index">04 <span>/</span> the now</div>
-        <div class="now-content">
-          <div class="now-heading">
-            <p class="eyebrow">A few open tabs</p>
-            <h2 id="now-title">Learning in<br><em>public.</em></h2>
-          </div>
-          <div class="interest-grid">
-            <div class="interest"><span>01</span><h3>Build</h3><p>Web applications that solve a real problem before they chase a trend.</p></div>
-            <div class="interest"><span>02</span><h3>Understand</h3><p>Networks, Linux and the infrastructure that makes the web dependable.</p></div>
-            <div class="interest"><span>03</span><h3>Explore</h3><p>Emerging technology and AI-assisted development with a practical filter.</p></div>
-          </div>
+        <div class="project-grid" id="project-grid">
+          <article class="project-card" data-kind="ventures">
+            <div class="project-card-top"><span class="file-icon">01</span><span class="project-kind">venture / ongoing</span></div>
+            <h3>Unlimited Internet Hub</h3>
+            <p>A community connectivity venture. Building reliable, accessible internet through network operations, customer support and continuous improvements to the service.</p>
+            <div class="tag-list"><span class="tag">mikrotik</span><span class="tag">wireless</span><span class="tag">operations</span></div>
+          </article>
+          <article class="project-card" data-kind="ventures">
+            <div class="project-card-top"><span class="file-icon">02</span><span class="project-kind">venture / operations</span></div>
+            <h3>Shoe Puzzle Enterprises</h3>
+            <p>Business operations in a premium footwear and accessories retail environment — learning how customer experience, processes and commercial decisions connect.</p>
+            <div class="tag-list"><span class="tag">retail</span><span class="tag">management</span><span class="tag">customer service</span></div>
+          </article>
+          <article class="project-card" data-kind="code">
+            <div class="project-card-top"><span class="file-icon">03</span><span class="project-kind">code / experiments</span></div>
+            <h3>GitHub lab</h3>
+            <p>A growing collection of web experiments, Linux workflows, automation and small tools. I use each project to understand a problem more deeply.</p>
+            <div class="tag-list"><span class="tag">web</span><span class="tag">linux</span><span class="tag">automation</span></div>
+            <a class="card-link" href="https://github.com/AlvinBaguma" target="_blank" rel="noopener noreferrer">explore repositories <span aria-hidden="true">↗</span></a>
+          </article>
         </div>
-      </section>
+        <p class="filter-empty" id="filter-empty" hidden>No projects in this category yet.</p>
+      </div>
+    </section>
 
-      <section class="contact section-grid" id="contact" aria-labelledby="contact-title">
-        <div class="section-index">05 <span>/</span> say hello</div>
-        <div class="contact-content">
-          <p class="eyebrow">Open to good conversations</p>
-          <h2 id="contact-title">Have a problem<br>worth <em>understanding?</em></h2>
-          <p class="contact-copy">Whether you’re hiring, building a business or thinking through a technical idea, I’d like to hear what you’re working on.</p>
-          <div class="contact-actions">
-            <a class="button button-accent" href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
-            <a class="button button-outline" href="https://github.com/AlvinBaguma" target="_blank" rel="noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-          <p class="cv-note"><a href="cv.html">View a concise CV</a> or find professional details via <a href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noreferrer">LinkedIn</a>.</p>
-        </div>
-      </section>
-    </main>
+    <section class="terminal-section" id="skills" aria-labelledby="skills-title">
+      <p class="section-cmd"><span class="prompt">$</span> cat skills.json</p>
+      <div class="section-content">
+        <h2 id="skills-title">tools I work <span class="accent">with.</span></h2>
+        <dl class="category-list skills-list">
+          <div class="category-row"><dt>systems</dt><dd>Linux administration · computer maintenance · troubleshooting · operating-system setup</dd></div>
+          <div class="category-row"><dt>networking</dt><dd>TCP/IP fundamentals · wireless networking · MikroTik · access-point deployment · network diagnostics</dd></div>
+          <div class="category-row"><dt>development</dt><dd>HTML · CSS · JavaScript · responsive web interfaces · Git and GitHub</dd></div>
+          <div class="category-row"><dt>tools</dt><dd>AI-assisted / agentic development · terminal workflows · automation · developer tooling</dd></div>
+          <div class="category-row"><dt>business</dt><dd>Business operations · customer service · communication · teamwork · problem-solving · adaptability · time management</dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <footer class="site-footer">
-      <span>© <span id="year">2026</span> Alvin Baguma</span>
-      <span>Made with intention in Kampala <span aria-hidden="true">✳</span></span>
-      <a href="#top">Back to top ↑</a>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    <section class="terminal-section" id="education" aria-labelledby="education-title">
+      <p class="section-cmd"><span class="prompt">$</span> cat education.log</p>
+      <div class="section-content">
+        <h2 id="education-title">always <span class="accent">learning.</span></h2>
+        <dl class="category-list education-list">
+          <div class="category-row"><dt>university</dt><dd><strong>Kampala International University</strong><span class="row-meta">2025–present</span></dd></div>
+          <div class="category-row"><dt>program</dt><dd>Bachelor of Information Technology (BIT)</dd></div>
+          <div class="category-row muted-row"><dt>A-Level</dt><dd>St. Peter’s Secondary School, Nsambya <span class="row-meta">2021–2022</span></dd></div>
+          <div class="category-row muted-row"><dt>O-Level</dt><dd>Mugwanya Summit College, Kyengera <span class="row-meta">2019</span></dd></div>
+          <div class="category-row muted-row"><dt>primary</dt><dd>St. Peter’s Primary School, Nsambya <span class="row-meta">P1–P7 · completed 2016</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="terminal-section" id="resume" aria-labelledby="resume-title">
+      <p class="section-cmd"><span class="prompt">$</span> cat resume.pdf</p>
+      <div class="section-content resume-row">
+        <div><h2 id="resume-title">the full <span class="accent">picture.</span></h2><p>A concise overview of my education, experience, skills and professional background.</p></div>
+        <a class="btn btn-outline" href="cv.html">open cv <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="terminal-section contact-section" id="contact" aria-labelledby="contact-title">
+      <p class="section-cmd"><span class="prompt">$</span> ./contact.sh</p>
+      <div class="section-content">
+        <p class="eyebrow">open to opportunities and good conversations</p>
+        <h2 id="contact-title">let’s build <span class="accent">something.</span></h2>
+        <p class="contact-copy">Interested in ICT opportunities, practical collaborations or a thoughtful conversation about technology and business? Reach out.</p>
+        <dl class="category-list contact-list">
+          <div class="category-row"><dt>linkedin</dt><dd><a href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noopener noreferrer">linkedin.com/in/alvin-baguma ↗</a></dd></div>
+          <div class="category-row"><dt>github</dt><dd><a href="https://github.com/AlvinBaguma" target="_blank" rel="noopener noreferrer">github.com/AlvinBaguma ↗</a></dd></div>
+          <div class="category-row"><dt>email</dt><dd><a href="mailto:bagumatroy@icloud.com">bagumatroy@icloud.com</a></dd></div>
+          <div class="category-row"><dt>phone</dt><dd><a href="tel:+256771895960">0771 895960</a><span class="contact-divider">/</span><a href="tel:+256795307471">0795 307471</a></dd></div>
+          <div class="category-row placeholder-row"><dt>x / twitter</dt><dd><span>your-handle</span><span class="placeholder-note">[ update when ready ]</span></dd></div>
+        </dl>
+        <div class="contact-actions"><a class="btn btn-primary" href="mailto:bagumatroy@icloud.com">send an email <span aria-hidden="true">↗</span></a><a class="btn btn-quiet" href="https://www.linkedin.com/in/alvin-baguma/" target="_blank" rel="noopener noreferrer">connect on linkedin <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year">2026</span> alvin baguma</span>
+    <span class="footer-clock">kampala <time id="eat-clock" aria-label="East Africa Time">--:-- EAT</time></span>
+    <span class="footer-links"><a href="#privacy" aria-label="Privacy information placeholder">privacy</a><a href="#top" class="back-to-top">back to top ↑</a></span>
+  </footer>
+  <script src="script.js"></script>
+</body>
 </html>
