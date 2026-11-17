@@ -1,5 +1,5 @@
 (() => {
-  "use strict";
+  "use strict";\n  document.documentElement.classList.add("js");
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const year = document.getElementById("year");
