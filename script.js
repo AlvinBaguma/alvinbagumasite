@@ -6,6 +6,37 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  // Calculate age from the birthday at seven-decimal precision (Kampala time).
+  const ageNode = document.getElementById("user-age");
+  if (ageNode) {
+    const birthday = new Date("2003-03-20T21:00:00.000Z"); // 21 March, 00:00 EAT
+    const tropicalYearMs = 365.2425 * 24 * 60 * 60 * 1000;
+    const updateAge = () => {
+      const age = (Date.now() - birthday.getTime()) / tropicalYearMs;
+      ageNode.textContent = age.toFixed(7);
+    };
+    updateAge();
+    window.setInterval(updateAge, 1000);
+  }
+
+  // Record one portfolio page view through the server-side Vercel function.
+  const viewCount = document.getElementById("view-count");
+  if (viewCount) {
+    fetch("/api/views", { method: "POST", headers: { "Accept": "application/json" } })
+      .then((response) => {
+        if (!response.ok) throw new Error("View counter unavailable");
+        return response.json();
+      })
+      .then((data) => {
+        if (Number.isFinite(Number(data.value))) {
+          viewCount.textContent = Number(data.value).toLocaleString("en-US");
+        } else {
+          viewCount.textContent = "—";
+        }
+      })
+      .catch(() => { viewCount.textContent = "—"; });
+  }
+
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
