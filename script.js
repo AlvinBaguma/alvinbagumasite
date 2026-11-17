@@ -19,24 +19,6 @@
     window.setInterval(updateAge, 1000);
   }
 
-  // Record one portfolio page view through the server-side Vercel function.
-  const viewCount = document.getElementById("view-count");
-  if (viewCount) {
-    fetch("/api/views", { method: "POST", headers: { "Accept": "application/json" } })
-      .then((response) => {
-        if (!response.ok) throw new Error("View counter unavailable");
-        return response.json();
-      })
-      .then((data) => {
-        if (Number.isFinite(Number(data.value))) {
-          viewCount.textContent = Number(data.value).toLocaleString("en-US");
-        } else {
-          viewCount.textContent = "—";
-        }
-      })
-      .catch(() => { viewCount.textContent = "—"; });
-  }
-
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
