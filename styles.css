@@ -415,3 +415,29 @@ html { scroll-behavior: smooth; }
 @media print {
   .hero::before, .hero-terminal::after { display: none !important; }
 }
+
+
+/* Staggered content reveals, coordinated with the section observer */
+.js .terminal-section .category-list .category-row,
+.js .terminal-section .project-grid .project-card,
+.js .terminal-section .results-table tbody tr {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 440ms var(--ease-out), transform 440ms var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js .terminal-section.is-visible .category-list .category-row,
+.js .terminal-section.is-visible .project-grid .project-card,
+.js .terminal-section.is-visible .results-table tbody tr {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .terminal-section .category-list .category-row,
+  .js .terminal-section .project-grid .project-card,
+  .js .terminal-section .results-table tbody tr {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
