@@ -38,7 +38,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--terminal); outl
 .header-meta { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
 .status-dot { display: inline-block; width: 7px; height: 7px; flex: 0 0 7px; border-radius: 50%; background: var(--terminal-aqua); box-shadow: 0 0 9px rgba(143,196,147,.5); }
 main { width: min(100% - 32px, 56rem); margin: 0 auto; padding-top: 66px; }
-.terminal-section { padding: 66px 0 70px; border-bottom: 1px solid var(--border); opacity: 0; transform: translateY(14px); transition: opacity 450ms ease, transform 450ms ease; }
+.terminal-section { padding: 66px 0 70px; border-bottom: 1px solid var(--border); }\n.js .terminal-section { opacity: 0; transform: translateY(14px); transition: opacity 450ms ease, transform 450ms ease; }
 .terminal-section.is-visible { opacity: 1; transform: translateY(0); }
 .hero { min-height: 620px; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(240px,.85fr); align-items: center; column-gap: 48px; padding-top: 86px; }
 .section-cmd { margin: 0 0 26px; color: var(--terminal-dim); font-size: 12px; }
