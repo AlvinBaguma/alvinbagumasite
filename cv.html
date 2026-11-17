@@ -1,57 +1,134 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Alvin Baguma — CV</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-      .cv-page { margin: 0 auto; max-width: 900px; padding: 8vw 7vw; }
-      .cv-page header { border-bottom: 1px solid var(--line); margin-bottom: 3rem; padding-bottom: 2rem; }
-      .cv-page h1 { font-size: clamp(3rem, 8vw, 6rem); margin: 2rem 0 1rem; }
-      .cv-page h2 { font-size: 1.4rem; letter-spacing: -.03em; margin: 3rem 0 1rem; }
-      .cv-page p, .cv-page li { color: var(--muted); font-size: .9rem; line-height: 1.75; }
-      .cv-page ul { padding-left: 1.2rem; }
-      .cv-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-      .cv-meta a { color: var(--accent); }
-      .print-link { float: right; }
-      @media print { .print-link { display: none; } .cv-page { padding: 0; } }
-    </style>
-  </head>
-  <body>
-    <main class="cv-page">
-      <header>
-        <a class="text-link" href="index.html">← Back to site</a>
-        <a class="text-link print-link" href="#" onclick="window.print(); return false;">Print / save PDF</a>
-        <h1>Alvin<br><em>Baguma.</em></h1>
-        <p>IT undergraduate · builder · technology-minded entrepreneur</p>
-        <div class="cv-meta">
-          <span>Kampala, Uganda</span>
-          <a href="https://github.com/AlvinBaguma">github.com/AlvinBaguma</a>
-          <a href="https://www.linkedin.com/in/alvin-baguma/">linkedin.com/in/alvin-baguma</a>
-        </div>
-      </header>
-      <section>
-        <h2>Profile</h2>
-        <p>Information Technology undergraduate at Kampala International University with practical experience in business operations, sales and community internet services. Interested in networking, Linux, web application development, automation and emerging technology.</p>
-      </section>
-      <section>
-        <h2>Experience</h2>
-        <h3>Unlimited Internet Hub</h3>
-        <p>Founder / operator · Community internet business</p>
-        <ul><li>Run and develop a community-focused internet venture.</li><li>Explore the relationship between reliable connectivity, customer needs and sustainable operations.</li></ul>
-        <h3>Shoe Puzzle Enterprises</h3>
-        <p>Business operations and sales</p>
-        <ul><li>Build practical experience through sales and day-to-day business operations.</li></ul>
-      </section>
-      <section>
-        <h2>Technical interests</h2>
-        <p>Computer networking · Linux · Web application development · Automation · AI-assisted development · Business technology</p>
-      </section>
-      <section>
-        <h2>Education</h2>
-        <p><strong>Kampala International University</strong><br>Information Technology undergraduate</p>
-      </section>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0e0f">
+  <meta name="description" content="Curriculum vitae of Alvin Baguma, Information Technology student at Kampala International University.">
+  <title>Alvin Baguma — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cv-page { width: min(100% - 36px, 52rem); margin: 0 auto; padding: 44px 0 70px; }
+    .cv-toolbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .cv-toolbar a { color: var(--terminal-blue); font-size: 11px; }
+    .cv-toolbar .btn { color: var(--terminal); }
+    .cv-header { padding: 46px 0 34px; border-bottom: 1px solid var(--border); }
+    .cv-header h1 { margin: 16px 0 10px; font-size: clamp(40px, 8vw, 64px); }
+    .cv-subtitle { color: var(--muted); font-size: 12px; }
+    .cv-meta { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-top: 22px; color: var(--terminal-dim); font-size: 10px; }
+    .cv-meta a { color: var(--terminal-blue); }
+    .cv-section { padding: 25px 0; border-bottom: 1px solid var(--border); }
+    .cv-section h2 { margin: 0 0 15px; color: var(--terminal); font-size: 14px; letter-spacing: 0; }
+    .cv-section p, .cv-section li { color: var(--muted); font-size: 11px; line-height: 1.9; }
+    .cv-section p { margin-bottom: 9px; }
+    .cv-section h3 { margin: 17px 0 3px; color: var(--fg); font-size: 12px; font-weight: 600; }
+    .cv-section h3:first-of-type { margin-top: 0; }
+    .cv-section ul { margin: 8px 0 16px; padding-left: 18px; }
+    .cv-section li { padding-left: 3px; margin-bottom: 4px; }
+    .cv-date { color: var(--terminal-dim); font-size: 10px; }
+    .cv-skills { display: grid; grid-template-columns: 125px 1fr; gap: 9px 18px; }
+    .cv-skills strong { color: var(--terminal-purple); font-size: 10px; font-weight: 500; }
+    .cv-skills span { color: var(--muted); font-size: 10px; line-height: 1.8; }
+    .cv-footer { padding-top: 20px; color: var(--terminal-dim); font-size: 9px; }
+    @media (max-width: 520px) { .cv-skills { grid-template-columns: 1fr; gap: 3px; } .cv-skills span { margin-bottom: 9px; } }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --fg: #181818; --card: #fff; --muted: #333; --border: #ddd; --terminal: #42552a; --terminal-dim: #555; --terminal-blue: #315b64; --terminal-purple: #68445b; }
+      body { background: #fff; color: #181818; font-size: 9pt; }
+      .cv-page { width: 100%; padding: 0; }
+      .cv-toolbar { display: none; }
+      .cv-header { padding: 0 0 18px; }
+      .cv-header h1 { color: #42552a; font-size: 32pt; text-shadow: none; }
+      .cv-section { padding: 12px 0; break-inside: avoid; }
+      .cv-section h2 { color: #42552a; }
+      .cv-section p, .cv-section li, .cv-skills span { color: #333; }
+      .cv-meta a { color: #315b64; }
+      a { text-decoration: none; }
+      .cv-footer { color: #555; }
+    }
+  </style>
+</head>
+<body>
+  <main class="cv-page">
+    <div class="cv-toolbar">
+      <a href="index.html">← back to portfolio</a>
+      <button class="btn btn-primary" type="button" onclick="window.print()">print / save as PDF ↗</button>
+    </div>
+    <header class="cv-header">
+      <p class="section-cmd"><span class="prompt">$</span> cat resume.pdf</p>
+      <p class="eyebrow">curriculum vitae</p>
+      <h1>Alvin Baguma</h1>
+      <p class="cv-subtitle">Information Technology student · Business operations · ICT enthusiast</p>
+      <div class="cv-meta">
+        <span>Kampala, Uganda</span>
+        <a href="mailto:bagumatroy@icloud.com">bagumatroy@icloud.com</a>
+        <a href="tel:+256771895960">0771 895960</a>
+        <a href="tel:+256795307471">0795 307471</a>
+        <a href="https://github.com/AlvinBaguma">GitHub</a>
+        <a href="https://www.linkedin.com/in/alvin-baguma/">LinkedIn</a>
+      </div>
+    </header>
+
+    <section class="cv-section">
+      <h2>01 / Profile</h2>
+      <p>Information Technology undergraduate at Kampala International University with practical experience in business operations and community internet services. Interested in applying technical knowledge, problem-solving ability and a willingness to learn in a professional ICT environment.</p>
+    </section>
+
+    <section class="cv-section">
+      <h2>02 / Career objective</h2>
+      <p>To obtain an industrial training opportunity where I can apply and strengthen my Information Technology knowledge, gain practical experience and contribute meaningfully to an organisation. I am eager to learn from experienced ICT professionals.</p>
+    </section>
+
+    <section class="cv-section">
+      <h2>03 / Education</h2>
+      <h3>Kampala International University <span class="cv-date">· 2025–present</span></h3>
+      <p>Bachelor of Information Technology (BIT)</p>
+      <h3>St. Peter’s Secondary School, Nsambya <span class="cv-date">· 2021–2022</span></h3>
+      <p>Advanced Level (A-Level)</p>
+      <h3>Mugwanya Summit College, Kyengera <span class="cv-date">· 2019</span></h3>
+      <p>Ordinary Level (O-Level)</p>
+      <h3>St. Peter’s Primary School, Nsambya <span class="cv-date">· P1–P7, completed 2016</span></h3>
+      <p>Primary education</p>
+    </section>
+
+    <section class="cv-section">
+      <h2>04 / Experience</h2>
+      <h3>Shoe Puzzle Enterprises</h3>
+      <p><strong>Manager, Business Operations</strong> <span class="cv-date">· 2023–present</span></p>
+      <ul>
+        <li>Support and coordinate day-to-day business operations.</li>
+        <li>Contribute to sales activities, customer service and the overall customer experience.</li>
+        <li>Assist with operational problem-solving and maintaining effective business processes.</li>
+        <li>Work collaboratively while balancing customer needs and business priorities.</li>
+      </ul>
+      <h3>Unlimited Internet Hub</h3>
+      <p><strong>Founder / Operator</strong> <span class="cv-date">· Community venture</span></p>
+      <ul>
+        <li>Operate a community internet service and support its daily activities.</li>
+        <li>Work with wireless networking equipment, connectivity and basic network troubleshooting.</li>
+        <li>Manage customer support and service improvements.</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2>05 / Technical skills</h2>
+      <div class="cv-skills">
+        <strong>Operating systems</strong><span>Linux, operating-system installation and configuration</span>
+        <strong>Networking</strong><span>Computer networking fundamentals, wireless networks, network troubleshooting</span>
+        <strong>Web development</strong><span>HTML, CSS, JavaScript and web application fundamentals</span>
+        <strong>AI & automation</strong><span>AI-assisted development, agentic tools and workflow automation</span>
+        <strong>Computer support</strong><span>Computer maintenance, diagnostics and troubleshooting</span>
+      </div>
+    </section>
+
+    <section class="cv-section">
+      <h2>06 / Professional skills</h2>
+      <p>Communication · teamwork · customer service · problem-solving · adaptability · time management · organisation · willingness to learn</p>
+    </section>
+    <footer class="cv-footer">Alvin Baguma · Kampala, Uganda · <a href="mailto:bagumatroy@icloud.com">bagumatroy@icloud.com</a></footer>
+  </main>
+</body>
 </html>
